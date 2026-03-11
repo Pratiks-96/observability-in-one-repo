@@ -10,9 +10,9 @@ spec:
 
   selector:
     matchLabels:
-      app: microservice
+      monitoring: enabled
 
   endpoints:
   - port: http
     path: /metrics
-    interval: 15s
+    interval: 10s

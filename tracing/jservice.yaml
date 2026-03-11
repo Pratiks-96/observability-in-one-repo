@@ -7,23 +7,10 @@ spec:
   selector:
     app: jaeger
   ports:
-  - name: ui
-    port: 16686
-    targetPort: 16686
-
-  - name: agent-udp
-    port: 6831
-    targetPort: 6831
-    protocol: UDP
-
-  - name: collector-http
-    port: 14268
-    targetPort: 14268
-
-  - name: otlp-grpc
-    port: 4317
-    targetPort: 4317
-
-  - name: otlp-http
-    port: 4318
-    targetPort: 4318
+    - name: thrift
+      port: 6831
+      targetPort: 6831
+      protocol: UDP
+    - name: collector
+      port: 14268
+      targetPort: 14268

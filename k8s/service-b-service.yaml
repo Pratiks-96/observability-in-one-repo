@@ -4,7 +4,8 @@ metadata:
   name: service-b
   namespace: microservices
   labels:
-    app: microservice
+    app: service-b
+    monitoring: enabled
 spec:
   selector:
     app: service-b

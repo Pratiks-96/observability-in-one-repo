@@ -4,7 +4,8 @@ metadata:
   name: service-b
   namespace: microservices
 spec:
-  replicas: 2
+  replicas: 1
+  
   selector:
     matchLabels:
       app: service-b

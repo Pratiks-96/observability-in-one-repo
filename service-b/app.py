@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 from prometheus_client import Counter, generate_latest
 
 # OpenTelemetry imports
@@ -34,12 +34,11 @@ REQUEST_COUNT = Counter("requests_total", "Total Requests")
 @app.route("/")
 def home():
     REQUEST_COUNT.inc()
-    return "Hello from Service b "
+    return "Hello from Service B"
 
 @app.route("/metrics")
 def metrics():
-    return generate_latest()
+    return Response(generate_latest(), mimetype="text/plain")
 
-# IMPORTANT: start Flask server
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

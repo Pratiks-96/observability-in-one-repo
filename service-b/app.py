@@ -14,7 +14,7 @@ app = Flask(__name__)
 # --------- JAEGER CONFIG ---------
 trace.set_tracer_provider(
     TracerProvider(
-        resource=Resource.create({"service.name": "service-a"})
+        resource=Resource.create({"service.name": "service-b"})
     )
 )
 
@@ -34,7 +34,7 @@ REQUEST_COUNT = Counter("requests_total", "Total Requests")
 @app.route("/")
 def home():
     REQUEST_COUNT.inc()
-    return "Hello from Service A"
+    return "Hello from Service bb"
 
 @app.route("/metrics")
 def metrics():

@@ -4,21 +4,23 @@ metadata:
   name: microservices-ingress
   namespace: microservices
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: /service-a
-        pathType: Prefix
+      - path: /service-a(/|$)(.*)
+        pathType: ImplementationSpecific
         backend:
           service:
             name: service-a
             port:
               number: 80
-      - path: /service-b
-        pathType: Prefix
+
+      - path: /service-b(/|$)(.*)
+        pathType: ImplementationSpecific
         backend:
           service:
             name: service-b

@@ -19,7 +19,7 @@ trace.set_tracer_provider(
 )
 
 jaeger_exporter = JaegerExporter(
-    agent_host_name="jaeger",
+    agent_host_name="jaeger.observability.svc.cluster.local",
     agent_port=6831,
 )
 

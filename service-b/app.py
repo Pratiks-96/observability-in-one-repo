@@ -34,7 +34,7 @@ REQUEST_COUNT = Counter("requests_total", "Total Requests")
 @app.route("/")
 def home():
     REQUEST_COUNT.inc()
-    return "Hello from Service A"
+    return "Hello from Service b "
 
 @app.route("/metrics")
 def metrics():

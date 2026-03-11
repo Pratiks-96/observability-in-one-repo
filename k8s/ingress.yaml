@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: microservices-ingress
   namespace: microservices
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
@@ -15,7 +17,6 @@ spec:
             name: service-a
             port:
               number: 80
-
       - path: /service-b
         pathType: Prefix
         backend:

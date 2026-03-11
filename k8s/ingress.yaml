@@ -4,9 +4,9 @@ metadata:
   name: microservices-ingress
   namespace: microservices
 spec:
+  ingressClassName: nginx
   rules:
-  - host: micro.local
-    http:
+  - http:
       paths:
       - path: /service-a
         pathType: Prefix
@@ -15,6 +15,7 @@ spec:
             name: service-a
             port:
               number: 80
+
       - path: /service-b
         pathType: Prefix
         backend:

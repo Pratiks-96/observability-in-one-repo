@@ -3,9 +3,12 @@ kind: Service
 metadata:
   name: service-a
   namespace: microservices
+  labels:
+    app: microservice
 spec:
   selector:
     app: service-a
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 5000

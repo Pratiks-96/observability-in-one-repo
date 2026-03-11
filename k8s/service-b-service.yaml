@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-b
+  namespace: microservices
+spec:
+  selector:
+    app: service-b
+  ports:
+  - port: 80
+    targetPort: 5000
